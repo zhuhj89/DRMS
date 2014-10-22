@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}商品信息{% endblock %}
+{% block scripts %}
+
+
+ {% endblock %}
+{% block content %}
+
+    <div class="col-md-10">
+        <form method="POST" action="{{ url_for('reg.domain_search') }}">
+            <div class="col-md-6">
+                <input class="form-control" placeholder="请输入要查询的条码" name="code" value="{{code}}">
+                <div class="help-block">
+                    <em>条码为13个数字</em>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <button class="btn btn-primary " type="submit">查询</button>
+            </div>
+            {% if result%}
+            <div class="col-md-2">
+                <a href="{{url_for('reg.domain_reg',codes = code)}}" class = "btn btn-default">注册</a>
+            </div>
+          {%endif%}
+        </form>
+        
+    </div>
+
+
+{% endblock %}

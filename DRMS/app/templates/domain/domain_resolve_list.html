@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}域名解析{% endblock %}
+{% block scripts %}
+
+{% endblock %}
+{% block content %}
+
+<div class="">
+
+   <table class="table table-bordered table-hover">
+      <caption><h3>域名解析列表</h3></caption>
+      <thead>
+         <tr>
+            <th align="center">域名</th>
+            <th>解析类型</th>
+            <th>url</th>
+            <th>操作</th>
+         </tr>
+      </thead>
+      <tbody>
+        {% if dns %}
+        {% for item in dns %}
+         <tr>
+            <td>{{item.domain_name}}</td>
+            <td>{{item.type.name}}</td>
+            <td>{{item.url}}</td>
+            <td>
+                <a href="{{url_for('domain.dns_update', id= item.id, next = url_for('domain.dns_list'))}}" class="btn btn-primary btn-sm" role="button">
+                    修改
+                </a>
+                <a href="{{url_for('domain.dns_delete', id = item.id)}}" class="btn btn-danger btn-sm" role="button">
+                    删除
+                </a>
+            </td>
+         </tr>
+        {% endfor %}
+      {% endif %}
+      </tbody>
+   </table>
+</div>
+
+{% endblock %}

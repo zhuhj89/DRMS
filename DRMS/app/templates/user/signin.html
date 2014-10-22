@@ -1,0 +1,43 @@
+{% if flag== '4' %}
+    {% extends "admin/_base.html" %}
+{%else%}
+    {% extends "base.html" %}
+{%endif%}
+{% block title %}会员登陆{% endblock %}
+
+{% block scripts %}
+{{ tags.script_tag('lib/jquery-openid.js') }}
+{% endblock %}
+
+{% block content %}
+<h1>用户登陆</h1>
+<form action="{{ url_for('user.signin') }}" class="form form-horizontal" id="form-signin" method="post">
+    {{ form.hidden_tag() }}
+    <div class="form-group {{ form.email.errors and 'error' }}">
+        <label class="col-sm-2 control-label">邮件</label>
+        <div class="col-sm-10">
+            {{ form.email }}
+            <span class="help-inline">{{ form.email.errors | first }}</span>
+        </div>
+    </div>
+    <div class="form-group {{ form.password.errors and 'error' }}">
+        <label class="col-sm-2 control-label">密码</label>
+        <div class="col-sm-10">
+            {{ form.password }}
+            <span class="help-inline">{{ form.password.errors | first }}</span>
+        </div>
+    </div>
+    {% if error %}
+        <div class="alert alert-error">
+            <strong>错误：</strong> {{ error }}
+        </div>
+    {% endif %}
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">用户登陆</button>&nbsp;&nbsp;
+
+            {{ form.remember }} 记住我的登陆信息
+        </div>
+    </div>
+</form>
+{% endblock %}

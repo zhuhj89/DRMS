@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}信息创建{% endblock %}
+{% block content %}
+<div class="content">
+    <div class="page-header">
+        <h3>信息创建</h3>
+    </div>
+    <form class="form-horizontal " action="{{url_for('reg.domian_con')}}" method="POST" enctype="multipart/form-data">
+        <div class="form-group {{ form.comp | error_class }}">
+            <label class="col-sm-2 control-label">{{ form.comp.label }}</label>
+            <div class="col-sm-10">
+                {{ form.comp }}
+                <span class="help-inline">{{ form.comp | error_text }}</span>
+            </div>
+        </div>
+
+        <div class="form-group {{ form.address | error_class }}">
+            <label class="col-sm-2 control-label">{{ form.address.label }}</label>
+            <div class="col-sm-10">
+                {{ form.address }}
+                <span class="help-inline">{{ form.address | error_text }}</span>
+            </div>
+        </div>
+
+       <div class="form-group {{ form.contact | error_class }}">
+            <label class="col-sm-2 control-label">{{ form.contact.label }}</label>
+            <div class="col-sm-10">
+                {{ form.contact }}
+                <span class="help-inline">{{ form.contact | error_text }}</span>
+            </div>
+        </div>
+        <div class="form-group {{ form.pno | error_class }}">
+             <label class="col-sm-2 control-label">{{ form.pno.label }}</label>
+             <div class="col-sm-10">
+                 {{ form.pno }}
+                 <span class="help-inline">{{ form.pno | error_text }}</span>
+             </div>
+         </div>
+         <div class="form-group {{ form.mno | error_class }}">
+              <label class="col-sm-2 control-label">{{ form.mno.label }}</label>
+              <div class="col-sm-10">
+                  {{ form.mno }}
+                  <span class="help-inline">{{ form.mno | error_text }}</span>
+              </div>
+          </div>
+          <div class="form-group {{ form.email | error_class }}">
+               <label class="col-sm-2 control-label">{{ form.email.label }}</label>
+               <div class="col-sm-10">
+                   {{ form.email }}
+                   <span class="help-inline">{{ form.email | error_text }}</span>
+               </div>
+           </div>
+           <!--div class="form-group {{ form.image | error_class }}">
+                <label class="col-sm-2 control-label">{{ form.image.label }}</label>
+                <div class="col-sm-10">
+                    {{ form.image }}
+                    <span class="help-inline">{{ form.image | error_text }}</span>
+                </div>
+            </div-->
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">提交</button>
+                <a href="{{ url_for('reg.domain_search') }}" class="btn btn-default">返回</a>
+            </div>
+         </div>
+    </form>
+</div>
+{% endblock %}

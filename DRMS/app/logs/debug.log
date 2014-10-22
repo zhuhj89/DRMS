@@ -1,0 +1,36 @@
+2014-09-18 11:10:27,821 ERROR: Exception on /domain/ [GET] [in C:\Python27\lib\site-packages\flask\app.py:1423]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+2014-09-18 11:14:31,553 ERROR: Exception on /domain/ [GET] [in C:\Python27\lib\site-packages\flask\app.py:1423]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+2014-09-18 11:14:38,733 ERROR: Exception on /domain/ [GET] [in C:\Python27\lib\site-packages\flask\app.py:1423]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+2014-09-18 11:15:35,977 ERROR: Exception on /domain/ [GET] [in C:\Python27\lib\site-packages\flask\app.py:1423]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1478, in full_dispatch_request
+    response = self.make_response(rv)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1566, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response

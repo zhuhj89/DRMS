@@ -1,0 +1,24 @@
+
+
+from lxml import etree as ET
+from lxml.etree import SubElement as ES
+
+
+
+def host_check():
+    __KEY = 'host'
+    __XML_NS_EPP = 'urn:ietf:params:xml:ns:epp-1.0'
+    __XML_NS_HOST ='urn:ietf:params:xml:ns:host-1.0'
+
+    xml_obj = {"name":"cnnic.com"}
+
+    epp = ET.Element('{%s}epp' % __XML_NS_EPP, nsmap={None: __XML_NS_EPP})
+    command = ES(epp,"command")
+    chack = ES(command,"chack")
+    domain_check = ES(chack,"{%s}chack" % __XML_NS_HOST,nsmap={'host': __XML_NS_HOST})
+    ES(domain_check,"{%s}name" % __XML_NS_HOST).text = xml_obj["name"]
+    ES(command,"clTRID").text = "ABC-12345"
+    print ET.tostring(epp,pretty_print=True,xml_declaration =True,encoding ='utf-8')
+
+if __name__ == '__main__':
+    host_check()

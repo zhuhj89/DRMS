@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}域名管理{% endblock %}
+{% block scripts %}
+   <script>
+       $(function () { $('.popover-hide').popover('hide');});
+   </script>
+
+{% endblock %}
+{% block content %}
+
+   <div class="panel panel-primary">
+   <div class="panel-heading">
+      <h3 class="panel-title">域名信息</h3>
+   </div>
+
+   <table class="table table-bordered table-hover">
+      {% if domain%}
+      <tr><td>域名</td><td colspan="3">{{domain.domain_code}}.niot.cn</td></tr>
+      <tr><td>创建时间</td><td>{{domain.create_time}}</td><td>到期时间</td><td>{{disable_time}}</td></tr>
+      <tr><td>联系人</td><td colspan="3">{{domain.domain_data.contact}}</td></tr>
+       <tr><td>资料审核状态</td>
+          <td colspan="3">
+              {%if status %}
+                    {%if status.audit_status =='1' %}
+                        审核中
+                    {%elif status.audit_status == '2' %}
+                        审核通过
+                    {%elif status.audit_status == '3' %}
+                            <span>审核失败</span>
+
+                           <button type="button" class="btn btn-default popover-hide"
+                                title="失败原因" data-container="body"
+                                data-toggle="popover" data-placement="top"
+                                data-content="{{status.reason}}">
+                                点击查看原因
+                           </button>
+                    {%endif%}
+              {%endif%}
+              <a href="{{url_for('domain.query_status', domain_code=domain.domain_code )}}" >查看</a>
+          </td>
+       </tr>
+      {% endif %}
+   </table>
+   <div class="panel-footer">
+
+       <a href="{{url_for('domain.domain_detail', domain_code = domain.domain_code)}}" class="btn btn-default" role="button">查看注册资料</a>
+       <a href="{{url_for('product.product_upload', domain_code = domain.domain_code)}}" class="btn btn-default" role="button">查看商品信息</a>
+       <a href="{{url_for('domain.dns_save', domain_code = domain.domain_code)}}" class="btn btn-default" role="button">域名解析</a>
+   </div>
+</div>
+{% endblock %}

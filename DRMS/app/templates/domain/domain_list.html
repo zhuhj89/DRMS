@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}域名管理{% endblock %}
+{% block scripts %}
+
+{% endblock %}
+{% block content %}
+
+<div class="">
+
+   <table class="table table-bordered table-hover">
+      <caption><h3>我的域名</h3></caption>
+      <thead>
+         <tr>
+            <th align="center">域名</th>
+            <th>创建时间</th>
+            <th>服务时长</th>
+            <th>操作</th>
+         </tr>
+      </thead>
+      <tbody>
+        {% if domain_list%}
+        {% for domain in domain_list%}
+         <tr>
+            <td>{{domain.domain_code}}.niot.cn</td>
+            <td>{{domain.create_time}}</td>
+            <td>{{domain.create_duration}}年</td>
+            <td>
+                <a href="{{url_for('domain.domain_show', domain_code=domain.domain_code )}}" class="btn btn-success" role="button">
+                    管理
+                </a>
+            </td>
+         </tr>
+        {% endfor%}
+        {% endif %}
+      </tbody>
+   </table>
+</div>
+
+{% endblock %}

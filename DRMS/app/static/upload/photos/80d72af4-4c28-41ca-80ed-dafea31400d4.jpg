@@ -1,0 +1,29 @@
+from lxml import etree 
+#import SubElement   
+
+
+
+__KEY = "contact"
+__XML_NS_CONTACT  = "contact"
+__XML_NS_EPP = "urn:ietf:params:xml:ns:epp-1.0"
+
+
+def aa():
+
+
+
+    epp_note = etree.Element('epp', nsmap={None: __XML_NS_EPP})
+    response_note = etree.SubElement(epp_note, 'response')
+    result_note = etree.SubElement(response_note, 'result', attrib={'code':'1000'})
+    etree.SubElement(result_note, 'msg').text='1000'
+    res_data_note = etree.SubElement(response_note, 'resData')
+    contact_chk_note =  etree.SubElement(res_data_note, '{%s}chkData' % __XML_NS_CONTACT, nsmap={__KEY: __XML_NS_CONTACT})
+    
+
+    
+   
+    req_xml = etree.tostring(epp_note,pretty_print=True,xml_declaration =True,encoding ='utf-8')
+    print  req_xml
+
+if __name__=="__main__" :
+    aa()

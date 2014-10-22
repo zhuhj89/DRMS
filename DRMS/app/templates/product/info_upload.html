@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}商品信息{% endblock %}
+
+{% block content %}
+<div class="content">
+    <div class="page-header">
+        <h3>条码商品信息</h3>
+    </div>
+    <form class="form-horizontal " action="{{ url_for('product.product_upload') }}" method="POST" enctype="multipart/form-data" >
+
+        <div class="form-group {{ form.product_code | error_class }}">
+            <label class="col-sm-2 control-label">{{ form.product_code.label }}</label>
+            <div  class="col-sm-10">
+                {{ form.product_code }}
+                <span class="help-inline">{{ form.product_code | error_text }}</span>
+            </div>
+        </div>
+
+        <div class="form-group {{ form.product_name | error_class }}">
+            <label class="col-sm-2 control-label">{{ form.product_name.label }}</label>
+            <div class="col-sm-10">
+                {{ form.product_name }}
+                <span class="help-inline">{{ form.product_name | error_text }}</span>
+            </div>
+        </div>
+
+        <div class="form-group {{ form.introduce | error_class }}">
+            <label class="col-sm-2 control-label">{{ form.introduce.label }}</label>
+            <div class="col-sm-10">
+                {{ form.introduce }}
+                <span class="help-inline">{{ form.introduce | error_text }}</span>
+            </div>
+        </div>
+        <div class="form-group {{ form.detail_info | error_class }}">
+            <label class="col-sm-2 control-label">{{ form.detail_info.label }}</label>
+            <div class="col-sm-10">
+                {{ form.detail_info }}
+                <span class="help-inline">{{ form.detail_info | error_text }}</span>
+            </div>
+        </div>
+        <div class="form-group {{ form.guide_price | error_class }}">
+            <label class="col-sm-2 control-label">{{ form.guide_price.label }}</label>
+            <div class="col-sm-10">
+                {{ form.guide_price }}
+                <span class="help-inline">{{ form.guide_price | error_text }}</span>
+            </div>
+        </div>
+
+
+
+        <div class="form-group {{ form.phone_num | error_class }}">
+            <label class="col-sm-2 control-label">{{ form.phone_num.label }}</label>
+            <div class="col-sm-10">
+                {{ form.phone_num }}
+                <span class="help-inline">{{ form.phone_num | error_text }}</span>
+            </div>
+        </div>
+        <div class="form-group {{ form.pack_list | error_class }}">
+            <label class="col-sm-2 control-label">{{ form.pack_list.label }}</label>
+            <div class="col-sm-10">
+                {{ form.pack_list }}
+                <span class="help-inline">{{ form.pack_list | error_text }}</span>
+            </div>
+        </div>
+       {% if images%}
+          {%for image in images%}
+          <div class="form-group {{ form.product_image | error_class }}">
+            <label class="col-sm-2 control-label">商品图片</label>
+             <div class="col-sm-10">
+                 <img src="{{image.url}}">
+             </div>
+          </div>
+          {%endfor%}
+       {%endif%}
+       <div class="form-group {{ form.product_image | error_class }}">
+            <label class="col-sm-2 control-label">{{ form.product_image.label }}</label>
+            <div class="col-sm-10">
+                {{ form.product_image }}
+                <span class="help-inline">{{ form.product_image | error_text }}</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">提交</button>
+                <a href="{{ url_for('site.index') }}" class="btn btn-default">返回</a>
+            </div>
+         </div>
+    </form>
+</div>
+{% endblock %}
