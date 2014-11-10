@@ -11,3 +11,4 @@ Flask-Uploads
 pygments
 markdown
 blinker
+suds
